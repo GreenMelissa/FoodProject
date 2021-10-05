@@ -22,6 +22,7 @@ main {
     margin-top: 103px;
     padding-bottom: 30px;
     background-color: #F6F7F9!important;
+    overflow-x: auto;
 }
 
 .navbar .container {
@@ -56,4 +57,26 @@ footer a:focus {
 
 footer a {
     color: #707070!important;
+}
+
+.tag-item {
+    border-radius: 10px;
+    background-color: #158078;
+    color: white;
+    padding: .5rem 1rem .5rem 1rem;
+    position: relative;
+}
+
+.tag-item:first-child {
+    margin-left: 0!important;
+}
+
+.js-tag-container .tag-item:hover {
+    cursor: pointer;
+}
+
+.js-tag-container .tag-item:after {
+    content: "\00d7";
+    position: absolute;
+    top: 0;
 }

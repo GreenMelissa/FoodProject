@@ -7,8 +7,6 @@
 use yii\bootstrap\Nav;
 use yii\helpers\Url;
 use yii\web\View;
-use yii\helpers\Html;
-use common\modules\user\models\User;
 
 ?>
 
@@ -22,33 +20,10 @@ use common\modules\user\models\User;
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <?= Nav::widget([
-                'options' => ['class' => 'navbar-nav mr-auto'],
-                'items' => [
-                    [
-                        'label' => 'Админка',
-                        'url' => ['/admin'],
-                        'visible' => \Yii::$app->user->can(User::ROLE_ADMIN),
-                    ],
-                ],
-            ]) ?>
-            <?php
-                if (Yii::$app->user->isGuest) {
-                    $menuItems[] = ['label' => 'Регистрация', 'url' => ['/user/registration/register']];
-                    $menuItems[] = ['label' => 'Авторизация', 'url' => ['/user/login/login']];
-                } else {
-                    $menuItems[] = '<li>'
-                        . Html::beginForm(['/user/login/logout'], 'post')
-                        . Html::submitButton(
-                            'Выход',
-                            ['class' => 'btn btn-link logout']
-                        )
-                        . Html::endForm()
-                        . '</li>';
-                }
-            ?>
-            <?= Nav::widget([
                 'options' => ['class' => 'navbar-nav ml-auto'],
-                'items' => $menuItems,
+                'items' => [
+                    ['label' => 'Кухни', 'url' => ['/food/food/index']],
+                ],
                 'encodeLabels' => false
             ]) ?>
         </div>

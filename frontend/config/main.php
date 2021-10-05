@@ -1,23 +1,18 @@
 <?php
 
-use backend\BackendModule;
-use common\modules\user\models\User;
-use frontend\modules\admin\AdminModule;
-use frontend\modules\builder\BuilderModule;
-use frontend\modules\user\UserModule;
-use yii\web\DbSession;
+use frontend\modules\food\FoodModule;
+use frontend\modules\tag\TagModule;
 use yii\helpers\ArrayHelper;
 
 $config = [
     'id' => 'app-frontend',
-    'name' => 'ESO Builder',
+    'name' => 'Food Project',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'modules' => [
-        'user' => UserModule::class,
-        'admin' => BackendModule::class,
-        'builder' => BuilderModule::class,
+        'food' => FoodModule::class,
+        'tag' => TagModule::class,
     ],
     'components' => [
         'request' => [
@@ -25,18 +20,9 @@ $config = [
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
-            'identityClass' => User::class,
+            'identityClass' => \yii\web\User::class,
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
-        ],
-        'session' => [
-            'class' => DbSession::class,
-            'writeCallback' => function ($session) {
-                return [
-                    'user_id' => Yii::$app->user->id,
-                    'last_write' => time(),
-                ];
-            },
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

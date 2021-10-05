@@ -19,21 +19,12 @@ $defaults = [
     'queryCacheDuration' => env('DB_QUERY_CACHE_DURATION', 3600),
     'username' => env('DB_USER'),
     'password' => env('DB_PASS'),
-    'schemaMap' => [
-        'pgsql' => [
-            'class' => Schema::class,
-            'columnSchemaClass' => [
-                'class' => ColumnSchema::class,
-                'deserializeArrayColumnToArrayExpression' => false,
-            ],
-        ],
-    ],
 ];
 
 $drivers = [
-    'pgsql' => [
-        'dsn' => 'pgsql:host=' . env('DB_HOST', 'localhost') . ';port=' . env('DB_PORT', '5432') . ';dbname=' . env('DB_NAME'),
+    'mysql' => [
+        'dsn' => 'mysql:host=' . env('DB_HOST', 'localhost') . ';port=' . env('DB_PORT', '3306') . ';dbname=' . env('DB_NAME'),
     ],
 ];
 
-return ArrayHelper::merge($defaults, $drivers['pgsql']);
+return ArrayHelper::merge($defaults, $drivers['mysql']);

@@ -1,0 +1,33 @@
+.adaptive-table {
+    max-width: 800px;
+}
+
+.adaptive-table tr th,
+.adaptive-table td {
+    padding: 1rem;
+}
+
+.adaptive-table .td-content {
+    height: 25px;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    .adaptive-table .td-content {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .adaptive-table tr th,
+    .adaptive-table td {
+        padding: .5rem;
+        font-size: 10px;
+    }
+    .adaptive-table .td-content {
+        width: 120px;
+    }
+}

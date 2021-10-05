@@ -3,8 +3,9 @@
 use dektrium\rbac\components\DbManager;
 
 return [
-    'id' => 'app-common',
+    'id' => 'food-project',
     'basePath' => dirname(__DIR__),
+    'language' => 'ru-RU',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -13,26 +14,17 @@ return [
     'components' => [
         'cache' => require(__DIR__ . '/components/cache.php'),
         'db' => require(__DIR__ . '/components/db.php'),
-        'mailer' => require(__DIR__ . '/components/mailer.php'),
         'urlManager' => require(__DIR__ . '/components/url.php'),
         'log' => require(__DIR__ . '/components/log.php'),
-        'authManager' => [
-            'class' => DbManager::class,
-        ],
         'i18n'         => [
             'translations' => [
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                 ],
-                'user*' => [
+                'food*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                 ],
             ],
         ],
-    ],
-    'params' => [
-        'adminEmail' => 'admin@example.com',
-        'supportEmail' => 'support@example.com',
-        'user.passwordResetTokenExpire' => 3600,
     ],
 ];

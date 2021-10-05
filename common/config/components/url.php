@@ -21,20 +21,7 @@ return [
     'rules' => [
         // главная
         '' => 'site/index',
-        // css
-        'css' => 'theme/css/get',
-        // менеджер
-        'admin' => 'admin',
-        'admin/<controller>/<action>' => 'admin/<controller>/<action>',
-        'admin/<module>/<controller>/<action>' => 'admin/<module>/<controller>/<action>',
-        // логин, регистрация, сброс пароля
-        '<action:login|logout>' => 'user/security/<action>',
-        'auth/<authclient>' => 'user/security/auth',
-        '<action:connect>/<method:finish>/<code>' => 'user/registration/<action>',
-        '<action:connect>/<code>' => 'user/registration/<action>',
-        '<action:join|register|update-profile>' => 'user/registration/<action>',
-        '<action:request>' => 'user/recovery/<action>',
-        'profile' => 'user/profile/index',
-        'cabinet' => 'cabinet/site/update',
+        // модуль кухонь
+        'food' => 'food/food/index',
     ],
 ];
